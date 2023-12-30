@@ -90,7 +90,10 @@ function getTemperature(){
   try {
     var weatherJson = storage.readJSON('weather.json');
     var weather = weatherJson.weather;
-    return Math.round(weather.temp-273.15);
+    var weather_c = Math.round(weather.temp-273.15);
+    var weather_f_1 = Math.round(weather_c*1.8);
+    var weather_f = Math.round(weather_f_1+32);
+    return Math.round(weather_f);
   } catch(ex) {
     print(ex)
     return "?"
